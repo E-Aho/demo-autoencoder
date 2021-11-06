@@ -1,4 +1,3 @@
-from abc import ABC
 from random import shuffle
 
 import matplotlib.pyplot as plt
@@ -20,7 +19,7 @@ def print_img(array1, array2, score, name=""):
     ax1.axis('off')
     ax2.imshow(array2, cmap=cmap, norm=norm, interpolation="none")
     ax2.axis('off')
-    plt.savefig(f"demo-{name}.png", format="png")
+    plt.savefig(f"imgs/demo-{name}.png", format="png")
 
 
 def print_imgs(encoded_imgs, decoded_imgs, scores, names, prefix=""):
@@ -28,7 +27,7 @@ def print_imgs(encoded_imgs, decoded_imgs, scores, names, prefix=""):
         print_img(encoded_imgs[i], decoded_imgs[i], scores[i], prefix+names[i])
 
 
-class Autoencoder(Model, ABC):
+class Autoencoder(Model):
     def __init__(self, latent_dim):
         super(Autoencoder, self).__init__()
         self.latent_dim = latent_dim
